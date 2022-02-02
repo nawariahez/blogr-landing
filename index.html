@@ -31,18 +31,40 @@
 
       .hero {
         background-color: tomato;
+        color: #ffff;
+        padding: 2rem 1rem;
+        background-image: url('/images/bg-pattern-intro-mobile.svg');
+        background-size: cover;
+        height: 50vh;
       }
+
+      .hero > *{
+        margin-top: 1rem;
+      }
+
 
       nav {
         padding: 1.5rem 1rem 1.5rem 1rem;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between
       }
 
       nav span {
         color: #ffff;
         font-weight: bold;
       }
+
+      button{
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+      }
+      .hero-cta{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+      }
+
     </style>
   </head>
   <body>
@@ -54,6 +76,11 @@
 
       <h1>A modern publishing platform</h1>
       <p>Grow your audience and build your online brand</p>
+
+      <div class="hero-cta">
+        <button>Start for free</button>
+        <button>Learn mMore</button>
+      </div>
     </div>
 
     <!-- Overview
