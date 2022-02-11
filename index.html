@@ -57,12 +57,14 @@
       .nav-menu {
         display: none;
         background-color: white;
-        margin: 0rem 1rem;
         color: #24242c;
+        width: 90%;
       }
 
       .open {
         display: block;
+        position: absolute;
+        right: 2rem;
       }
 
       button {
@@ -76,7 +78,8 @@
         align-items: center;
       }
       /* Feature */
-      .feature {
+      .feature,
+      .feature2 {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -85,12 +88,49 @@
         text-align: center;
       }
 
-      .feature h2 {
-        margin-top: 2rem;
+      .feature-headline {
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+
+      @media only screen and (min-width: 600px) {
+        .feature {
+          flex-direction: row-reverse;
+        }
+      }
+
+      .feature-img-mobile, .feature2-img-mobile {
+        display: block;
+      }
+
+      .feature-img-desktop, .feature2-img-desktop {
+        display: none;
+      }
+
+      @media only screen and (min-width: 600px) {
+        .feature2 {
+          flex-direction: row;
+        }
+
+        .feature2 div {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .feature-img-mobile,.feature2-img-mobile {
+          display: none;
+        }
+        .feature-img-desktop, .feature2-img-desktop {
+          display: block;
+          width: 50%;
+        }
       }
 
       /* Mockup */
       .mockup {
+        display: flex;
+        flex-direction: column;
         background-image: url('/images/bg-pattern-circles.svg');
         background-color: #24242c;
         color: #ffff;
@@ -106,6 +146,20 @@
         position: relative;
         width: 100%;
         bottom: 10rem;
+      }
+
+      @media only screen and (min-width: 600px) {
+        .mockup {
+          flex-direction: row;
+        }
+
+        .mockup div {
+          /* width: 40%; */
+        }
+
+        .mockup img {
+          width: 50%;
+        }
       }
 
       /* footer */
@@ -124,6 +178,17 @@
       footer ul {
         list-style: none;
       }
+
+      @media only screen and (min-width: 600px) {
+        footer {
+          flex-direction: row;
+          /* width: 100%; */
+          padding-left: 2rem;
+          padding-right: 2rem;
+          gap: 0;
+          justify-content: space-between;
+        }
+      }
     </style>
   </head>
   <body>
@@ -141,8 +206,22 @@
           <li>Integrations</li>
         </ul>
 
-        Company About Team Blog Careers Connect Contact Newsletter LinkedIn
-        Login Sign Up
+        <h2>Company</h2>
+        <ul>
+          <li>About</li>
+          <li>Team</li>
+          <li>Careers</li>
+        </ul>
+
+        <h2>Connect</h2>
+        <ul>
+          <li>Contact</li>
+          <li>Newsletter</li>
+          <li>LinkedIn</li>
+        </ul>
+
+        <a href="#">Login</a>
+        <button>Sign Up</button>
       </div>
 
       <h1>A modern publishing platform</h1>
@@ -154,60 +233,78 @@
       </div>
     </div>
 
+    <h2 class="feature-headline">Designed for the future</h2>
     <div class="feature">
-      <h2>Designed for the future</h2>
-      <img src="/images/illustration-editor-mobile.svg" alt="" />
+      <img src="/images/illustration-editor-mobile.svg" class="feature-img-mobile" alt="" />
+      <img src="/images/illustration-editor-desktop.svg" class="feature-img-desktop" alt="" />
 
-      <h2>Introducing an extensible editor</h2>
-      <p>
-        Blogr features an exceedingly intuitive interface which lets you focus
-        on one thing: creating content. The editor supports management of
-        multiple blogs and allows easy manipulation of embeds such as images,
-        videos, and Markdown. Extensibility with plugins and themes provide easy
-        ways to add functionality or change the looks of a blog.
-      </p>
+      <div>
+        <h2>Introducing an extensible editor</h2>
+        <p>
+          Blogr features an exceedingly intuitive interface which lets you focus
+          on one thing: creating content. The editor supports management of
+          multiple blogs and allows easy manipulation of embeds such as images,
+          videos, and Markdown. Extensibility with plugins and themes provide
+          easy ways to add functionality or change the looks of a blog.
+        </p>
 
-      <h2>Robust content management</h2>
-      <p>
-        Flexible content management enables users to easily move through posts.
-        Increase the usability of your blog by adding customized categories,
-        sections, format, or flow. With this functionality, you’re in full
-        control.
-      </p>
+        <h2>Robust content management</h2>
+        <p>
+          Flexible content management enables users to easily move through
+          posts. Increase the usability of your blog by adding customized
+          categories, sections, format, or flow. With this functionality, you’re
+          in full control.
+        </p>
+      </div>
     </div>
 
     <div class="mockup">
       <img src="/images//illustration-phones.svg" alt="" />
-      <h2>State of the Art Infrastructure</h2>
-      <p>
-        With reliability and speed in mind, worldwide data centers provide the
-        backbone for ultra-fast connectivity. This ensures your site will load
-        instantly, no matter where your readers are, keeping your site
-        competitive.
-      </p>
+      <div>
+        <h2>State of the Art Infrastructure</h2>
+
+        <p>
+          With reliability and speed in mind, worldwide data centers provide the
+          backbone for ultra-fast connectivity. This ensures your site will load
+          instantly, no matter where your readers are, keeping your site
+          competitive.
+        </p>
+      </div>
     </div>
 
-    <div class="feature">
-      <img src="/images/illustration-laptop-mobile.svg" alt="" />
+    <div class="feature2">
+      <img
+        src="/images/illustration-laptop-mobile.svg"
+        class="feature2-img-mobile"
+        alt=""
+      />
+      <img
+        src="/images/illustration-laptop-desktop.svg"
+        class="feature2-img-desktop"
+        alt=""
+      />
 
-      <h2>Free, open, simple</h2>
-      <p>
-        Blogr is a free and open source application backed by a large community
-        of helpful developers. It supports features such as code syntax
-        highlighting, RSS feeds, social media integration, third-party
-        commenting tools, and works seamlessly with Google Analytics. The
-        architecture is clean and is relatively easy to learn.
-      </p>
+      <div>
+        <h2>Free, open, simple</h2>
+        <p>
+          Blogr is a free and open source application backed by a large
+          community of helpful developers. It supports features such as code
+          syntax highlighting, RSS feeds, social media integration, third-party
+          commenting tools, and works seamlessly with Google Analytics. The
+          architecture is clean and is relatively easy to learn.
+        </p>
 
-      <h2>Powerful tooling</h2>
-      <p>
-        Batteries included. We built a simple and straightforward CLI tool that
-        makes customization and deployment a breeze, but capable of producing
-        even the most complicated sites.
-      </p>
+        <h2>Powerful tooling</h2>
+        <p>
+          Batteries included. We built a simple and straightforward CLI tool
+          that makes customization and deployment a breeze, but capable of
+          producing even the most complicated sites.
+        </p>
+      </div>
     </div>
 
     <footer>
+      <h1>Blogr</h1>
       <ul>
         <h3>Product</h3>
         <li>Overview</li>
@@ -231,12 +328,6 @@
         <li>Newsletter</li>
         <li>LinkedIn</li>
       </ul>
-      <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Nawari</a>.
-      </div>
     </footer>
     <!-- Overview
 
